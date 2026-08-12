@@ -21,7 +21,7 @@ int main()
 	// INADDR_ANY 代表本机的所有 IP, 假设有三个网卡就有三个 IP 地址
 	// INADDR_ANY 这个宏可以代表任意一个 IP 地址
 	// INADDR_ANY 这个宏一般用于本地的绑定操作
-	saddr.sin_addr.s_addr = INADDR_ANY;  // 这个宏的值为0 == 0.0.0.0
+	saddr.sin_addr.s_addr = INADDR_ANY;  // 这个宏的值为 0 == 0.0.0.0
 
 	int ret = bind(fd, (struct sockaddr*)&saddr, sizeof(saddr));
 	if (ret == -1)
@@ -39,7 +39,7 @@ int main()
 	}
 
 // 4. 阻塞等待并接受客户端连接
-	struct sockaddr_in caddr;
+	struct sockaddr_in caddr; 
 	int addrlen = sizeof(caddr);
 	int cfd = accept(fd, (struct sockaddr*)&caddr, &addrlen);
 	if (cfd == -1)
